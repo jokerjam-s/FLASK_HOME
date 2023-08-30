@@ -75,7 +75,7 @@ main {
 }
 
 .prod__cards{
-    display: inline-grid;
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     /*grid-template-rows: 80px;*/
     grid-column-gap: 20px;
