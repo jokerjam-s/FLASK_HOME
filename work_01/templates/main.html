@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        {% block title %}
+        Магазин одежды
+        {% endblock %}
+    </title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <section class="site__nav">
+            <section class="nav__logo">
+                <a class="nav__logo__link" href="/index">
+                    <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="Logo" width="40px" height="40px">
+                    <div>CУПЕРМАГ</div>
+                </a>
+            </section>
+            <section class="nav__menu">
+                <a class="nav__menu__link" href="/dress/">Одежда</a>
+                <a class="nav__menu__link" href="/shoes/">Обувь</a>
+                <a class="nav__menu__link" href="/jacket/">Куртка</a>
+            </section>
+        </section>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        {% block content %}
+        <section class="main__info">
+            <h1 class="main__title">Добро пожаловать!</h1>
+            <img src="{{ url_for('static', filename='/img/top_image_04.webp') }}" alt="Info" width="100%">
+            <p class="main__text" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium commodi earum fuga ipsum minima modi molestias neque non obcaecati omnis possimus, ratione. A ab aliquid aspernatur, et, hic laudantium magni nostrum odit praesentium quaerat reprehenderit suscipit unde voluptate. Architecto assumenda dolores eligendi esse itaque modi possimus rem vero. Adipisci, consequuntur dolor esse expedita harum, illo incidunt inventore, labore molestias natus nesciunt perspiciatis possimus quibusdam quo totam velit vitae. Consectetur consequuntur explicabo in rem tempore! Ab aliquid commodi dolor expedita fugiat harum laudantium minima neque nulla numquam odit quam, reiciendis repellat sapiente voluptatem? Aliquam, beatae consectetur earum eligendi eos illum ipsam iste iusto labore minus modi molestias nulla numquam officiis optio praesentium quae quis recusandae reiciendis repellendus rerum totam vitae voluptatem. Amet atque autem beatae blanditiis dignissimos enim eos error excepturi, fugiat in inventore iste laborum maiores, maxime natus, nemo omnis porro praesentium sint tempora unde vel veniam vitae voluptas voluptatum.</p>
+        </section>
+        {% endblock %}
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <section class="footer__text">
+            &copy;&nbsp;Супер магазин. <span id="year_info"></span>
+        </section>
+    </div>
+</footer>
+
+<script>
+    "use strict;"
+
+    const yearNow = new Date();
+    document.getElementById('year_info').textContent = yearNow.getFullYear().toString();
+</script>
+</body>
+</html>
