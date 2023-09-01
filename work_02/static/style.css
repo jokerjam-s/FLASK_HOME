@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    padding: 50px;
+}
+
+.user__form{
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user__form input{
+    margin-bottom: 10px;
+}
