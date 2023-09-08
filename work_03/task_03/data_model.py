@@ -11,7 +11,7 @@ class Student(db.Model):
     second_name = db.Column(db.String(30), nullable=False)
     group_name = db.Column(db.String(20), nullable=False)
     student_email = db.Column(db.String(250))
-    ratings = db.relationship('Rating', backref='student', lazy=True)
+    ratings = db.relationship('Rating', backref='student', lazy=False)
 
     def __str__(self):
         return f'{self.first_name} {self.second_name}, группа {self.group_name}'
