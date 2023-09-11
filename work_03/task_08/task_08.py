@@ -4,6 +4,9 @@ from work_03.task_08.data_model import db, User
 from work_03.task_08.signin_form import SignInForm
 from werkzeug.security import generate_password_hash
 
+_STATUS_OK = 'ok'
+_STATUS_ERR = 'error'
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///user_data.db"
 app.config['SECRET_KEY'] = '9737b994-63b0-4151-bf13-5c6c6e16725b'
@@ -25,15 +28,21 @@ def error_404(err):
 @app.route('/')
 @app.route('/index/')
 def index():
-    """Главная страница"""
+    """Главная страница."""
     return render_template('main.html')
 
 
 @app.route('/signin/', methods=['GET', 'POST'])
 def signin():
-    """Регистрация нового пользователя в системе"""
+    """Регистрация нового пользователя в системе."""
     sign_form = SignInForm()
     if request.method == 'POST' and sign_form.validate():
+        user_on_mail = User.query.filter_by(user_email=sign_form.user_email.data).first()
+        print(user_on_mail)
+        if user_on_mail is not None:
+            # Проверка существования email.
+            return redirect(url_for('sign_result', status=_STATUS_ERR))
+
         new_user = User(
             user_name=sign_form.user_name.data,
             user_email=sign_form.user_email.data,
@@ -43,19 +52,17 @@ def signin():
         )
         db.session.add(new_user)
         db.session.commit()
-        print(new_user.id)
 
-        return redirect(url_for('sign_result', id=new_user.id))
+        return redirect(url_for('sign_result', status=_STATUS_OK))
 
     return render_template('signin.html', form=sign_form)
 
 
-@app.route('/sign-result/<int:id>')
-def sign_result(id):
-    """Резульаь регистрации пользователя"""
-    user = User.query.filter_by(id=id)
-    if user is None:
-        flash('Ошибка регистрации!', 'error')
-    else:
+@app.route('/sign-result/<string:status>')
+def sign_result(status):
+    """Результат регистрации пользователя."""
+    if status == _STATUS_OK:
         flash('Пользователь зарегистрирован!', 'ok')
+    else:
+        flash('Ошибка регистрации!', 'error')
     return render_template('sign_result.html')
