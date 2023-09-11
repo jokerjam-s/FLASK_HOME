@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h2>Регистрация пользователя</h2>
+<form action="{{ url_for('signin') }}" method="post">
+    {{ form.csrf_token }}
+
+    <div class="form__control">
+        {{ form.user_name.label  }}
+        {{ form.user_name }}
+    </div>
+    <div class="form__control">
+        {{ form.user_email.label  }}
+        {{ form.user_email }}
+    </div>
+    <div class="form__control">
+        {{ form.birth_day.label  }}
+        {{ form.birth_day }}
+    </div>
+    <div class="form__control">
+        {{ form.password.label  }}
+        {{ form.password }}
+    </div>
+    <div class="form__control">
+        {{ form.confirm_password.label  }}
+        {{ form.confirm_password }}
+    </div>
+    <div class="form__checkbox">
+        {{ form.agreement.label  }}
+        {{ form.agreement }}
+    </div>
+
+    <button class="btn" type="submit">Регистрация</button>
+</form>
+
+{% endblock %}

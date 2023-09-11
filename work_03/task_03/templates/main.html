@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Статистика студентов</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class=".container">
+    <h1>Успеваемость студентов</h1>
+    {% block content %}
+    {% for student in students %}
+    <section>
+        <h4>{{ student }}</h4>
+        {% for rating in student.ratings %}
+        <div>{{ rating }}</div>
+        {% endfor %}
+    </section>
+    {% endfor %}
+    {% endblock %}
+</div>
+</body>
+</html>
