@@ -5,9 +5,9 @@ from work_03.task_03.data_model import db, Student, Rating
 
 """Набор для генерации тестовых данных"""
 _FIRST_NAMES = ('Иван', 'Петр', 'Сергей', 'Николай', 'Тимофей')
-_SECOND_NAME = ('Сидоров', 'Петров', 'Тимофеев', 'Сергеев', 'Николаев')
+_SECOND_NAMES = ('Сидоров', 'Петров', 'Тимофеев', 'Сергеев', 'Николаев')
 _GROUPS = ('ГР-1', 'ПР-2', 'ТМ-1', 'МО-3')
-_SUBJECT = ('Математика', 'Физика', 'Химия', 'Физкультура', 'Информатика')
+_SUBJECTS = ('Математика', 'Физика', 'Химия', 'Физкультура', 'Информатика')
 
 """Инициализация приложения"""
 app = Flask(__name__)
@@ -26,13 +26,13 @@ def db_init():
 def fill_db():
     """Заполнение тестовыми данными"""
     for i in range(1, 6):
-        new_student = Student(first_name=rnd.choice(_FIRST_NAMES), second_name=rnd.choice(_SECOND_NAME),
+        new_student = Student(first_name=rnd.choice(_FIRST_NAMES), second_name=rnd.choice(_SECOND_NAMES),
                               group_name=rnd.choice(_GROUPS))
         db.session.add(new_student)
 
     for i in range(1, 6):
-        for j in range(len(_SUBJECT)):
-            new_rate = Rating(student_id=i, subject=_SUBJECT[j], rating=rnd.randint(3, 5))
+        for j in range(len(_SUBJECTS)):
+            new_rate = Rating(student_id=i, subject=_SUBJECTS[j], rating=rnd.randint(3, 5))
             db.session.add(new_rate)
 
     db.session.commit()
