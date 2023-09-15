@@ -12,6 +12,60 @@ body {
     padding: 50px;
 }
 
+h1 {
+    margin-bottom: 10px;
+}
+
 .container {
     max-width: 700px;
+}
+
+.btn{
+    border: 1px solid brown;
+    color: lemonchiffon;
+    background-color: chocolate;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.btn:hover {
+    color: chocolate;
+    background-color: lemonchiffon;
+}
+
+.alert {
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px 0;
+    font-weight: bold;
+    border-width: 2px;
+    border-style: solid;
+    text-align: center;
+}
+
+.alert-info{
+    border-color: blue;
+    color: darkblue;
+    background-color: lightskyblue;
+}
+
+.alert-warning{
+    border-color: saddlebrown;
+    color: saddlebrown;
+    background-color: lemonchiffon;
+}
+
+.alert-success{
+    border-color: darkgreen;
+    color: darkgreen;
+    background-color: lightgreen;
+}
+
+.alert-error{
+    border-color: darkred;
+    color: darkred;
+    background-color: lightcoral;
 }
