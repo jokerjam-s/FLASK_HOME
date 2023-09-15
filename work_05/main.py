@@ -1,18 +1,27 @@
-from fastapi import FastAPI
+import os.path
+
+from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
-from user import User
+from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
+from work_05.user import User
 import uvicorn
 
+base_dir = os.path.dirname(os.path.abspath(__file__))
+print(base_dir)
 app = FastAPI()
+# https://qna.habr.com/q/1219276
+app.mount(base_dir, StaticFiles(directory='static'), name="work_05")
+templates = Jinja2Templates(directory='work_05/templates')
 
 users: list[User] = []
 
 
 @app.get("/", response_class=HTMLResponse)
-@app.get("/index/")
-async def index():
+@app.get("/index/", response_class=HTMLResponse)
+async def index(request: Request):
     """Отображение списка пользователей"""
-    return {"index": "Start page"}
+    return templates.TemplateResponse("main.html", {"request": request, "users": users})
 
 
 @app.delete('/user/{id}')
