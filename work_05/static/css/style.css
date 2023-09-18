@@ -21,9 +21,9 @@ h1 {
 }
 
 .btn{
-    border: 1px solid brown;
-    color: lemonchiffon;
-    background-color: chocolate;
+    border: 1px double darkblue;
+    color: #0d0d0d;
+    background-color: lightskyblue;
     font-weight: bold;
     padding: 10px;
     border-radius: 5px;
@@ -32,8 +32,8 @@ h1 {
 }
 
 .btn:hover {
-    color: chocolate;
-    background-color: lemonchiffon;
+    color: lightskyblue;
+    background-color: darkblue;
 }
 
 .alert {
@@ -44,28 +44,20 @@ h1 {
     border-width: 2px;
     border-style: solid;
     text-align: center;
-}
-
-.alert-info{
-    border-color: blue;
-    color: darkblue;
-    background-color: lightskyblue;
+    color: #0d0d0d;
 }
 
 .alert-warning{
-    border-color: saddlebrown;
-    color: saddlebrown;
+    border: 1px double saddlebrown;
     background-color: lemonchiffon;
 }
 
-.alert-success{
-    border-color: darkgreen;
-    color: darkgreen;
-    background-color: lightgreen;
+.alert-info{
+    border: 1px double #008000;
+    background-color: #e8ffe8;
 }
 
 .alert-error{
-    border-color: darkred;
-    color: darkred;
+    border: 1px double darkred;
     background-color: lightcoral;
 }
