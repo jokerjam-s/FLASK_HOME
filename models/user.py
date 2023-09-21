@@ -15,6 +15,7 @@ class User(BaseModel):
         max_length=settings.PASSWORD_MAX_LEN,
         min_length=settings.PASSWORD_MIN_LEN,
     )
+    
 
 
 class UserIn(BaseModel):

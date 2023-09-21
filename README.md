@@ -16,3 +16,21 @@
 
 Создайте модели pydantic для получения новых данных и возврата существующих в БД для каждой из трёх таблиц.
 Реализуйте CRUD операции для каждой из таблиц через создание маршрутов, REST API.
+
+**Пример выполнения, тестирования**
+
+![img.png](readme_img/img_01.png)    
+
+![img.png](readme_img/img_02.png)
+
+![img.png](readme_img/img_03.png)
+
+![img.png](readme_img/img_04.png)
+
+![img.png](readme_img/img_05.png)
+
+![img.png](readme_img/img_06.png)
+
+![img.png](readme_img/img_07.png)
+
+![img.png](readme_img/img_08.png)
